@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width, initial-scale=1.0">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Plantitas</title>
     <!--<link rel="stylesheet" href="style.css">-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -13,46 +13,59 @@
 
 </head>
 <body>
+    
     <section id="nav-bar">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"><img src="images/LOGO.png"></a>
+            <a class="navbar-brand" href="#"><img src="images/LOGO.png" alt="LOGO"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </button>
-<!----------------------------barra superior------------------------------------------->
+<!-- barra superior -->
             <div class="collapse navbar-collapse" id="navbarNav">
-            <!--ml-auto mueve la navbar automaticamente a la derecha del todo-->    
+            <!-- ml-auto mueve la navbar automaticamente a la derecha del todo -->    
             <ul class="navbar-nav ml-auto">
-                <!--interior de navbar-->
+                <!-- interior de navbar -->  
                 <li class="nav-item">
-                <a class="nav-link" href="#top">INICIO</a>
+                <a class="nav-link" href="index.html">INICIO</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="tienda.html">TIENDA</a>
+                <a class="nav-link" href="html/tienda.html">TIENDA</a>
                 </li>
+                <!--
                 <li class="nav-item">
                 <a class="nav-link" href="#servicios">SERVICIOS</a>
                 </li>
+                -->
                 <li class="nav-item">
                 <a class="nav-link " href="#carrito">CARRITO</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link " href="#footer">CONTACTO</a>
                 </li>
+                <li class="nav-item">
+                <a class="nav-link " href="html/formulario-sign-up.html">REGISTRATE</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link " href="html/formulario-login.html">INGRESA</a>
+                </li>
             </ul>            
             </div>
-        </nav>   
-    </section> 
+        </nav>  
+    </section>
 
-<!--------------------------- seccion del baner --------------------------------->
+    <section>
+        
+    </section>
+<!-- seccion del baner -->
 <!--
 <section id="banner">
 <div class="container">
-    <!--row = fila--><!--
+-->
+    <!-- row = fila --><!--
 <div class="row">
 <div class="col-md-6">
-    <!--texto-baner--><!--
+    <!-- texto-baner --> <!--
     <p class="titulo-inicio">LA MEJOR TIENDA DIGITAL DE PLANTAS!</p>
     <P>Tienda Online de Plantas de Interior y Exterior en Macetero con Despacho a Domicilio en Toda la Quinta Region!.</P>
 </div>
@@ -65,7 +78,7 @@
 
 </section>
 -->
-<!--------------------------- seccion CARRUSEL --------------------------------->
+<!-- seccion CARRUSEL -->
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
@@ -89,8 +102,8 @@
     </a>
   </div>
 
-<!--------------------------- seccion de los servicios --------------------------------->
-
+<!-- seccion de los servicios -->
+<!--
 <section id="servicios">
     <div class="container text-center">
     <h1 class="titulo">VARIEDAD DE SERVICIOS!</h1>
@@ -98,9 +111,12 @@
     <div class="row text-center">
     <div class="col-md-4 servicios">
         <a href="#!" data-bs-toggle="modal" data-bs-toggle="modalImage1">
-            <img src="images/variedad-plantas.png" class="imagen-servicio">
+            <img src="images/variedad-plantas.png" alt="variedad-plantas" class="imagen-servicio">
         </a>     
-        <!--primer texto -->
+        -->
+
+        <!-- primer texto -->
+        <!--
         <h4>Gran Oferta de Plantas</h4> 
         <p class="texto-servicio">En "Plantita" tenemos gran variedad de planatas de Casa y Exterior, estas pueden ir directo a tu casa gracias a nuestro servicio de envio a toda la QUINTA REGION!.</p>
 
@@ -108,9 +124,12 @@
     
     <div class="col-md-4 servicios">
         <a href="#!" data-bs-toggle="modal" data-bs-toggle="modalImage2">
-            <img src="images/variedad-plantas.png" class="imagen-servicio">
-        </a> 
-         <!--segundo texto-->
+            <img src="images/variedad-plantas.png" alt="variedad-plantas" class="imagen-servicio">
+        </a>
+        -->
+
+         <!-- segundo texto -->
+         <!--
         <h4>Gran Oferta de Plantas</h4> 
         <p class="texto-servicio">En "Plantita" tenemos gran variedad de planatas de Casa y Exterior, estas pueden ir directo a tu casa gracias a nuestro servicio de envio a toda la QUINTA REGION!.</p>
     
@@ -118,9 +137,11 @@
 
     <div class="col-md-4 servicios">
         <a href="#!" data-bs-toggle="modal" data-bs-toggle="modalImage2">
-            <img src="images/variedad-plantas.png" class="imagen-servicio">
+            <img src="images/variedad-plantas.png" alt="variedad-plantas" class="imagen-servicio">
         </a> 
-             <!--tercer texto-->
+        -->
+             <!-- tercer texto -->
+        <!--
         <h4>Gran Oferta de Plantas</h4> 
         <p class="texto-servicio">En "Plantita" tenemos gran variedad de planatas de Casa y Exterior, estas pueden ir directo a tu casa gracias a nuestro servicio de envio a toda la QUINTA REGION!.</p>
     </div>
@@ -131,11 +152,13 @@
 
 </section>
 
-<!--------------------------- MODALS --------------------------------->
+-->
+
+<!-- MODALS -->
 
 <!-- Imagen 1-->
 
-<!--  primera parte declara que es MODAL y la segunda indica la animacion con la que abre y cierra-->
+<!--  primera parte declara que es MODAL y la segunda indica la animacion con la que abre y cierra -->
 <!--
 <section>
     <div
@@ -158,7 +181,7 @@
 
 
 
-<!--------------------------- Nosotros --------------------------------->
+<!-- Nosotros -->
 <!--
 <section id="nosotros">
     <div class="container">
@@ -182,9 +205,11 @@
     </div>
     </div>
 </section>
+
 -->
 
-<!------------------------------------CARDS-------------------------------------------->
+<!-- CARDS -->
+
 <!--
 <section>
     <div class="card" style="width: 18rem;">
@@ -196,24 +221,25 @@
         </div>
       </div>
 </section>
+
 -->
 
-<!--------------------------- seccion REDES SOCIALES --------------------------------->
+<!-- seccion REDES SOCIALES -->
 
 <section id="social-media">
     <div class="container text-center">     
         <p>ENCUENTRANOS EN NUESTRAS REDES SOCIALES</p>
 
     <div class="iconos-social">
-        <a href="#"><img src="images/instagram.png"></a>
-        <a href="#"><img src="images/facebook.png"></a>
-        <a href="#"><img src="images/twitter.png"></a>
-        <a href="#"><img src="images/whatsapp.png"></a>
+        <a href="#"><img src="images/instagram.png" alt="instagram"></a>
+        <a href="#"><img src="images/facebook.png" alt="facebook"></a>
+        <a href="#"><img src="images/twitter.png" alt="twitter"></a>
+        <a href="#"><img src="images/whatsapp.png" alt="whatsapp"></a>
     </div>        
     </div>
 </section>
 
-<!--------------------------- seccion footer = pie de pagina --------------------------------->
+<!-- seccion footer = pie de pagina -->
 
 <section id="footer">
 <div class="container">
@@ -250,8 +276,8 @@
 </div>
 </section>
 
-<!--------------------------- Smooth Scroll --------------------------------->
-    <script src="js/smooth-scroll.js"></script>
+<!-- Smooth Scroll -->
+    <script src="js/smooth-scroll.js" alt="smooth-scroll"></script>
     <script>
         var scroll = new SmoothScroll('a[href*="#"]');
     </script>

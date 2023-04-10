@@ -52,7 +52,7 @@ body
     outline: none !important;
 }
 
-/*----------------banner + texto + imagen----------------*/
+/*-- banner + texto + imagen --*/
 
 #banner
 {
@@ -78,7 +78,7 @@ body
 }
 
 
-/*--------------------------- Carrusel ---------------------------------*/
+/*-- Carrusel --*/
 
 
 .carousel-item
@@ -89,7 +89,7 @@ body
 }
 
 
-/*------------------- CARD ----------------------------*/
+/*-- CARD --*/
 
 .container
 {
@@ -97,7 +97,7 @@ body
 }
 
 
-/*---------------- seccion "REDES SOCIALES"----------------*/
+/*-- seccion "REDES SOCIALES" --*/
 
 #social-media
 {
@@ -125,7 +125,7 @@ body
     transform: translateY(-10px);
 }
 
-/*---------------- pie de pagina----------------*/
+/*-- pie de pagina --*/
 
 #footer
 {
