@@ -1,0 +1,336 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body
+{
+
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#nav-bar
+{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar
+{
+    background-image: linear-gradient(to right, #f4e196,#a6bf91, #5f9982);
+    padding: 0 !important;
+}
+
+.navbar-brand img
+{
+    height: 80px;
+    padding-left: 20px;
+}
+
+.navbar-nav li
+{
+    padding: 0 10px;
+}
+
+.navbar-nav li a
+{
+    color: #fff !important;
+    font-weight: 600;
+    float: right;
+    text-align: left;
+}
+
+.fa-bars
+{
+    color: #fff;
+    font-size: 30px !important;
+}
+
+.navbar-toggler
+{
+    outline: none !important;
+}
+
+/*-- banner + texto + imagen --*/
+
+#banner
+{
+    background-image: linear-gradient(to right, #76aa86, #569d5e);
+    color: #fff;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.titulo-inicio
+{
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 100px;
+}
+
+.img-portada
+{
+    width: 450px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+/*-- FORMULARIO */
+
+.container-form
+{
+    max-width: 650px;
+    padding: 28px;
+    margin: 0 28px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    box-shadow: 0 15px 20px #ABB2B9;
+}
+
+h2
+{
+    font-size: 26px;
+    font-weight: 600;
+    text-align: left;
+    color: #2f4f4f;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #c0c0c0;
+}
+
+.content
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.input-box
+{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+}
+
+.input-box:nth-child(2)
+{
+    justify-content: end;
+}
+
+.input-box label, .titulo-genero
+{
+    width: 95%;
+    color: #2f4f4f;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.titulo-genero
+{
+    font-size: 16px;
+}
+
+.input-box input
+{
+    height: 40px;
+    width: 95%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.input-box input:is(:focus, :valid)
+{
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .2);
+}
+
+.categoria-genero
+{
+    color: #808080;
+}
+
+.categoria-genero label
+{
+    padding: 0 20px 0 5px;
+    font-size: 14px;
+}
+
+.categoria-genero label, .categoria-genero input
+{
+    cursor: pointer;
+}
+
+.alert p
+{
+    font-size: 14px;
+    font-style: italic;
+    color: #696969;
+    margin: 5px 0;
+    padding: 10px;
+}
+
+.alert a
+{
+    text-decoration: underline;
+}
+
+.button-container
+{
+    margin: 15px 0;
+}
+
+.button-container button
+{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #aa076b, #61045f);
+
+}
+
+/*
+.button-container button:hover
+{
+    background-image: linear-gradient(to right, #61045f, #aa076b);
+}
+*/
+
+@media(max-width:600px)
+{
+    .container-form
+    {
+        max-width: 280px;
+    }
+
+    .content
+    {
+        max-height: 380px;
+        overflow: auto;
+    }
+
+    .input-box
+    {
+        margin-bottom: 12px;
+        width: 100%;
+    }
+
+    .input-box:nth-child(2n)
+    {
+        justify-content: space-between;
+    }
+
+    .categoria-genero
+    {
+        display: flex;
+        justify-content: space-between;
+        width: 60%;
+    }
+    /*
+    .content::-webkit-scrollbar
+    {
+        width: 0;
+    }
+    */
+}
+
+/*-- seccion "REDES SOCIALES" --*/
+
+#social-media
+{
+    background-color: #f8f9fa;
+    padding: 100px 0;
+}
+
+#social-media p
+{
+    font-size: 30px;
+    font-weight: 600px;
+    margin-bottom: 30px;
+}
+
+.iconos-social img
+{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 4%;
+    width: 8%;
+    transition: 0.5s;
+}
+
+.iconos-social a:hover img
+{
+    transform: translateY(-10px);
+}
+
+/*-- pie de pagina --*/
+
+#footer
+{
+    background-image: linear-gradient(to right, #56da7d, #56da7d);
+    color: #fff;
+}
+
+.footer-box
+{
+    padding: 20px;
+}
+
+
+
+.footer-box .fa
+{
+    margin-right: 8px;
+    font-size: 25px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    padding-top: 7px;
+    border-radius: 2px;
+    background-image: linear-gradient(to right, #43d46e, #41b163);
+}
+
+.footer-box .form-control
+{
+    box-shadow: none !important;
+    border: none;
+    border-radius: 0;
+    margin-top: 25px;
+    max-width: 250px;
+
+}
+
+.footer-box .btn-primary
+{
+    box-shadow: none !important;
+    border: none;
+    border-radius: 0;
+    margin-top: 15px;
+    background-image: linear-gradient(to right, #a517ba, #5f1782);
+ 
+}
+
+hr
+{
+    background-color: #fff;
+}
+
+.copyright
+{
+    margin-bottom: 0;
+    padding-bottom: 20px;
+    text-align: center;
+}

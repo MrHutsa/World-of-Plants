@@ -52,7 +52,7 @@ body
     outline: none !important;
 }
 
-/*----------------banner + texto + imagen----------------*/
+/*-- banner + texto + imagen --*/
 
 #banner
 {
@@ -78,7 +78,7 @@ body
 }
 
 
-/*--------------------------- Carrusel ---------------------------------*/
+/*-- Carrusel --*/
 
 
 .carousel-item
@@ -91,7 +91,7 @@ body
 
 
 
-/*--------------------------- seccion de los servicios ---------------------------------*/
+/*-- seccion de los servicios --*/
 
 #servicios
 {
@@ -122,7 +122,7 @@ body
     text-transform: uppercase;
 }
 
-/*---------------- Boton "todos los servicios"----------------*/
+/*-- Boton "todos los servicios"--*/
 
 #servicios .btn-primary
 {
@@ -133,7 +133,7 @@ body
     background-image: linear-gradient(to right, #76aa86, #569d5e);
 }
 
-/*---------------- seccion "nosotros"----------------*/
+/*-- seccion "nosotros" --*/
 /*
 #nosotros
 {
@@ -159,7 +159,7 @@ body
     margin-left: 20px;
 }
 */
-/*------------------- CARD ----------------------------*/
+/*-- CARD --*/
 
 .Card image cap
 {
@@ -179,11 +179,7 @@ body
 
 
 
-
-
-
-
-/*---------------- seccion "REDES SOCIALES"----------------*/
+/*-- seccion "REDES SOCIALES" --*/
 
 #social-media
 {
@@ -202,7 +198,7 @@ body
 {
     margin-left: 20px;
     margin-right: 20px;
-    width: 10%;
+    width: 8%;
     transition: 0.5s;
 }
 
@@ -211,7 +207,7 @@ body
     transform: translateY(-10px);
 }
 
-/*---------------- pie de pagina----------------*/
+/*-- pie de pagina --*/
 
 #footer
 {
