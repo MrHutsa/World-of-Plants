@@ -8,7 +8,6 @@
 
 body
 {
-
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -82,170 +81,162 @@ body
     margin-right: 10px;
 }
 
-/*-- FORMULARIO */
+/*-- LOGIN TEMPLATE */ 
 
-.container-form
-{
-    max-width: 650px;
-    padding: 28px;
-    margin: 0 28px;
-    margin-top: 4%;
-    margin-bottom: 4%;
-    box-shadow: 0 15px 20px #ABB2B9;
+* { box-sizing: border-box; }
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap');
+
+
+body {
+  font-family: 'Rubik', sans-serif;
 }
 
-h2
-{
-    font-size: 26px;
-    font-weight: 600;
-    text-align: left;
-    color: #2f4f4f;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #c0c0c0;
+.container {
+  display: flex;
+  height: 100vh;
 }
 
-.content
-{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px 0;
+.left {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  animation-name: left;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-delay: 1s;
 }
 
-.input-box
-{
-    display: flex;
-    flex-wrap: wrap;
-    width: 50%;
-    padding-bottom: 15px;
+.right {
+  flex: 1;
+  background-color: black;
+  transition: 1s;
+  background-image: url(https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.input-box:nth-child(2)
-{
-    justify-content: end;
+
+
+.header > h2 {
+  margin: 0;
+  color: #4f46a5;
 }
 
-.input-box label, .titulo-genero
-{
-    width: 95%;
-    color: #2f4f4f;
-    font-weight: bold;
-    margin: 5px 0;
+.header > h4 {
+  margin-top: 10px;
+  font-weight: normal;
+  font-size: 15px;
+  color: rgba(0,0,0,.4);
 }
 
-.titulo-genero
-{
-    font-size: 16px;
+.form {
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
 }
 
-.input-box input
-{
-    height: 40px;
-    width: 95%;
-    padding: 0 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    outline: none;
+.form > p {
+  text-align: right;
 }
 
-.input-box input:is(:focus, :valid)
-{
-    box-shadow: 0 3px 6px rgba(0, 0, 0, .2);
+.form > p > a {
+  color: #000;
+  font-size: 14px;
 }
 
-.categoria-genero
-{
-    color: #808080;
+.form-field {
+  height: 46px;
+  padding: 0 16px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Rubik', sans-serif;
+  outline: 0;
+  transition: .2s;
+  margin-top: 20px;
 }
 
-.categoria-genero label
-{
-    padding: 0 20px 0 5px;
-    font-size: 14px;
+.form-field:focus {
+  border-color: #0f7ef1;
 }
 
-.categoria-genero label, .categoria-genero input
-{
-    cursor: pointer;
+.form > button {
+  padding: 12px 10px;
+  border: 0;
+  background: linear-gradient(to right, #de48b5 0%,#0097ff 100%); 
+  border-radius: 3px;
+  margin-top: 10px;
+  color: #fff;
+  letter-spacing: 1px;
+  font-family: 'Rubik', sans-serif;
 }
 
-.alert p
-{
-    font-size: 14px;
-    font-style: italic;
-    color: #696969;
-    margin: 5px 0;
-    padding: 10px;
+.animation {
+  animation-name: move;
+  animation-duration: .4s;
+  animation-fill-mode: both;
+  animation-delay: 2s;
 }
 
-.alert a
-{
-    text-decoration: underline;
+.a1 {
+  animation-delay: 2s;
 }
 
-.button-container
-{
-    margin: 15px 0;
+.a2 {
+  animation-delay: 2.1s;
 }
 
-.button-container button
-{
-    width: 100%;
-    margin-top: 10px;
-    padding: 10px;
-    display: block;
-    font-size: 20px;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    background-image: linear-gradient(to right, #aa076b, #61045f);
-
+.a3 {
+  animation-delay: 2.2s;
 }
 
-/*
-.button-container button:hover
-{
-    background-image: linear-gradient(to right, #61045f, #aa076b);
+.a4 {
+  animation-delay: 2.3s;
 }
-*/
 
-@media(max-width:600px)
-{
-    .container-form
-    {
-        max-width: 280px;
-    }
-
-    .content
-    {
-        max-height: 380px;
-        overflow: auto;
-    }
-
-    .input-box
-    {
-        margin-bottom: 12px;
-        width: 100%;
-    }
-
-    .input-box:nth-child(2n)
-    {
-        justify-content: space-between;
-    }
-
-    .categoria-genero
-    {
-        display: flex;
-        justify-content: space-between;
-        width: 60%;
-    }
-    /*
-    .content::-webkit-scrollbar
-    {
-        width: 0;
-    }
-    */
+.a5 {
+  animation-delay: 2.4s;
 }
+
+.a6 {
+  animation-delay: 2.5s;
+}
+
+@keyframes move {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-40px);
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+@keyframes left {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+
+  100% {
+    opacity: 1;
+    padding: 20px 40px;
+    width: 440px;
+  }
+}
+View Compiled
+
+
+Resources
+   
+
+
 
 /*-- seccion "REDES SOCIALES" --*/
 
