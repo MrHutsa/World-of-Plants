@@ -9,9 +9,9 @@ Seccion PROGRAMACION WEB_009D
 
 
 
-versión 1.2.0
+versión 1.2.3
 
 cambios:
 
--se agregaron las paginas html y css de "formulario-sign-up" y " formulario-logion"
--formulario-sign-up: en este se armo el formulario, todavia tiene fallos como: no estar centrado.
+-Se cambio por completo el "formulario-login"
+-Se modificaron los botones de "Registrarse y Ingresar" en los Formularios.
