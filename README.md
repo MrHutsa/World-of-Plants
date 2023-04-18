@@ -9,9 +9,8 @@ Seccion PROGRAMACION WEB_009D
 
 
 
-versión 1.2.3
+versión 1.2.4
 
 cambios:
 
--Se cambio por completo el "formulario-login"
--Se modificaron los botones de "Registrarse y Ingresar" en los Formularios.
+-Se actualizaron los mensajes de error con js en el formulario sign-up
