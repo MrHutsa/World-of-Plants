@@ -9,8 +9,8 @@ Seccion PROGRAMACION WEB_009D
 
 
 
-versión 1.2.4
+versión 1.2.4.1
 
 cambios:
 
--Se actualizaron los mensajes de error con js en el formulario sign-up
+-se comenzo el login con boosttrap y jquery
