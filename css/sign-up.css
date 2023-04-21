@@ -23,7 +23,7 @@ body
 
 .navbar
 {
-    background-image: linear-gradient(to right, #f4e196,#a6bf91, #5f9982);
+    background-image: linear-gradient(to right, #c0de5d,#b5cc6a,#a9bd68 , #99a66d,#6da67a);
     padding: 0 !important;
 }
 
@@ -267,6 +267,19 @@ h2
     margin-bottom: 4%;
 }
 
+.ico
+{
+    font-size: 400%;
+    margin-left: 20px;
+    margin-right: 20px;
+    transition: 0.5s;
+}
+
+.ico a:hover
+{
+    transform: translateY(-1000px);
+}
+
 .iconos-social img
 {
     margin-left: 20px;
@@ -285,7 +298,7 @@ h2
 
 #footer
 {
-    background-image: linear-gradient(to right, #56da7d, #56da7d);
+    background-image: linear-gradient(to right, #c0de5d,#b5cc6a,#a9bd68 , #99a66d,#6da67a);
     color: #fff;
 }
 
@@ -305,7 +318,7 @@ h2
     text-align: center;
     padding-top: 7px;
     border-radius: 2px;
-    background-image: linear-gradient(to right, #43d46e, #41b163);
+    background-image: linear-gradient(to right, #a517ba, #5f1782);
 }
 
 .footer-box .form-control

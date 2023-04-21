@@ -9,8 +9,9 @@ Seccion PROGRAMACION WEB_009D
 
 
 
-versión 1.2.4.1
+versión 1.2.5
 
 cambios:
 
--se comenzo el login con boosttrap y jquery
+-Se termino el formulario LOGIN el cual es a base de boosttrap y jquery
+-Se cambiaron los colores de la empresa y el color de los iconos de "redes sociales"
