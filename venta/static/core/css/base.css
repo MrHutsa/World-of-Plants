@@ -1,0 +1,112 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-family: sans-serif;
+}
+
+#nav-bar
+{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar
+{
+    background-image: linear-gradient(to right, #c0de5d,#b5cc6a,#a9bd68 , #99a66d,#6da67a);
+    padding: 0 !important;
+}
+
+.navbar-brand img
+{
+    height: 80px;
+    padding-left: 20px;
+}
+
+.navbar-nav li
+{
+    padding: 0 10px;
+}
+
+.navbar-nav li a
+{
+    color: #fff !important;
+    font-weight: 600;
+    float: right;
+    text-align: left;
+}
+
+.fa-bars
+{
+    color: #fff;
+    font-size: 30px !important;
+}
+
+.navbar-toggler
+{
+    outline: none !important;
+    padding: .75rem .95rem;
+}
+
+
+/*-- pie de pagina --*/
+
+#footer
+{
+    background-image: linear-gradient(to right, #c0de5d,#b5cc6a,#a9bd68 , #99a66d,#6da67a);
+    color: #fff;
+}
+
+.footer-box
+{
+    padding: 20px;
+}
+
+.footer-box .fa
+{
+    margin-right: 8px;
+    font-size: 25px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    padding-top: 7px;
+    border-radius: 2px;
+    background-image: linear-gradient(to right, #a517ba, #5f1782);
+}
+
+.footer-box .form-control
+{
+    box-shadow: none !important;
+    border: none;
+    border-radius: 0;
+    margin-top: 25px;
+    max-width: 250px;
+
+}
+
+.footer-box .btn-primary
+{
+    box-shadow: none !important;
+    border: none;
+    border-radius: 0;
+    margin-top: 15px;
+    background-image: linear-gradient(to right, #a517ba, #5f1782);
+ 
+}
+
+hr
+{
+    background-color: #fff;
+}
+
+.copyright
+{
+    margin-bottom: 0;
+    padding-bottom: 20px;
+    text-align: center;
+}

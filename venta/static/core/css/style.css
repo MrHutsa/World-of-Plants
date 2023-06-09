@@ -1,0 +1,147 @@
+
+/*-- banner + texto + imagen --*/
+
+#banner
+{
+    background-image: linear-gradient(to right, #b5cc6a,#6da67a);
+    color: #fff;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.titulo-inicio
+{
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 100px;
+}
+
+.img-portada
+{
+    width: 450px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+/*-- Carrusel --*/
+
+.carousel-item
+{
+    width: 80%;
+    margin-left: 10%;
+    max-width: 120em;    
+}
+
+/*-- seccion de los servicios --*/
+
+#servicios
+{
+    padding: 4% 0;
+}
+
+.imagen-servicio
+{
+    width: 200px;
+    margin-top: 20px;
+}
+
+.texto-servicio
+{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.servicios
+{
+    padding: 20px;
+}
+
+.servicios h4
+{
+    padding: 5px;
+    margin-top: 25px;
+    text-transform: uppercase;
+}
+
+/*-- Boton "todos los servicios"--*/
+
+.btnServicios
+{
+    box-shadow: none;
+    padding: 8px 25px;
+    border: none;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #76aa86, #569d5e);
+}
+
+#servicios .btn-primary
+{
+    box-shadow: none;
+    padding: 8px 25px;
+    border: none;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #76aa86, #569d5e);
+}
+
+/*-- CARD- --*/
+
+.Card image cap
+{
+    width: 400px;
+    margin-top: 20px;
+}
+
+.card
+{
+    font-size: 20px;
+
+    margin-top: 8%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*-- seccion "REDES SOCIALES" --*/
+
+#social-media {
+    background-color: #f8f9fa;
+}
+
+#social-media p
+{
+    font-size: 30px;
+
+    margin-bottom: 30px;
+}
+
+.ico
+{
+    font-size: 400%;
+    margin-left: 20px;
+    margin-right: 20px;
+    transition: 0.5s;
+}
+
+.ico a:hover
+{
+    transform: translateY(-1000px);
+}
+
+.iconos-social
+{
+    padding-bottom: 2%;
+}
+
+.iconos-social img
+{
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 8%;
+    transition: 0.5s;
+}
+
+.iconos-social a:hover img
+{
+    transform: translateY(-10px);
+}

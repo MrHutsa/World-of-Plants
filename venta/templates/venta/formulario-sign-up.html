@@ -1,0 +1,104 @@
+{%extends 'venta/base.html'%}
+
+{%load static%}
+
+
+{% block title %} Sign-up {% endblock %}
+{% block content %}
+
+<section>
+
+        <!-- FORMULARIO- -->
+
+        <section class="container mx-auto d-flex justify-content-center">
+            <div class="container-form">
+                <form action="#" method="post" id="registro-form">
+                    <h2>Registro</h2>
+                    <div class="content">
+                          <!-- Nombre Completo -->
+                        <div class="input-box">
+                            <label for="nombre">Nombre Completo</label>
+                            <input type="text" placeholder="Nombre completo" name="nombre" id="nombre" >
+                        </div>
+                         <!-- Nombre Usuario -->
+                        <div class="input-box">
+                            <label for="nombreUsuario">Nombre Usuario</label>
+                            <input type="text" placeholder="Ingrese usuario" name="usuario" id="usuario" >
+                        </div>
+                         <!-- Email -->
+                        <div class="input-box">
+                            <label for="email">Email</label>
+                            <input type="email" placeholder="Ingrese Email" name="email" id="email" >
+                        </div>
+                         <!-- Numero Telefonico -->
+                        <div class="input-box">
+                            <label for="telefono">Numero Telefonico</label>
+                            <input type="tel" placeholder="Ej: 111-222-333" name="telefono" id="telefono" >
+                        </div>
+                         <!-- Contraseña -->
+                        <div class="input-box">
+                            <label for="contraseña">Contraseña</label>
+                            <input type="password" placeholder="Ingrese contraseña" name="contraseña" id="contraseña" >
+                        </div>
+                         <!-- Confirme su Contraseña -->
+                        <div class="input-box">
+                            <label for="Contraseña">Confirme su Contraseña</label>
+                            <input type="password" placeholder="Confirme contraseña" name="confirmeContraseña" id="confirmeContraseña" >
+                        </div>
+
+
+                     <!-- Terminos de Uso -->
+
+                    <div class="alert">
+                        <p>Al hacer clic en Registrarse, acepta nuestros
+                            <a href="#">Términos,</a>
+                            <a href="#">Política de privacidad,</a>
+                            y
+                            <a href="#">Política de cookies.</a>
+                            Puede recibir notificaciones por SMS de nosotros y puede optar por no participar en cualquier momento.</p>
+                    </div>
+
+                    <div class="button-container">
+
+                          <button type="submit">Registrarse</button>
+ 
+                    </div>
+                </form>
+            </div>
+        </section>
+
+
+        
+        <!-- seccion REDES SOCIALES -->
+
+        <section id="social-media">
+            <div class="container text-center">     
+              <p>ENCUENTRANOS EN NUESTRAS REDES SOCIALES</p>
+              <div class="iconos-social d-flex justify-content-center text-center mt-4 pt-1 mb-4">
+                <a href="https://www.instagram.com/"><i class="ico fa-brands fa-instagram" style="color: #a9bd68;"></i></a>
+                <a href="https://es-la.facebook.com/"><i class="ico fa-brands fa-facebook" style="color: #a9bd68;"></i></a>
+                <a href="https://twitter.com/"><i class="ico fab fa-twitter" style="color: #a9bd68;"></i></a>
+                <a href="https://www.whatsapp.com/"><i class="ico fa-brands fa-whatsapp" style="color: #a9bd68;"></i></a>
+              </div>        
+            </div>
+          </section>
+          
+<!--
+        <section id="social-media">
+            <div class="container text-center">
+                <p>ENCUENTRANOS EN NUESTRAS REDES SOCIALES</p>
+
+                <div class="iconos-social">
+                    <a href="#"><img src="../images/instagram.png" alt="instagram"></a>
+                    <a href="#"><img src="../images/facebook.png" alt="facebook"></a>
+                    <a href="#"><img src="../images/twitter.png" alt="twitter"></a>
+                    <a href="#"><img src="../images/whatsapp.png" alt="whatsapp"></a>
+                </div>
+            </div>
+        </section>
+-->
+
+<script src="../js/sign-up.js"></script>
+
+</section>
+{% endblock %}
