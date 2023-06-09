@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 
+from .models import Usuario,Genero
+
 import requests
 import random
 
@@ -93,3 +95,124 @@ def tienda(request):
 
 def generate_random_price():
     return random.randint(10000, 50000)
+
+
+
+#CRUD#
+
+def usuarios(request):
+    return render(request,'venta/usuarios.html')
+
+def usuariosList(request):
+    #defino un objeto para trar el listado completo de usuarios desde la BD
+    #Usuario.objects.all() <=> 'Select * From Usuario'
+    usuarios= Usuario.objects.all()
+    #cargo el objeto obtenido al contexto 
+    contexto={
+        'usuarios': usuarios
+    }
+    #agrego el contexto al retorno para que se vea en el template
+    return render(request, 'venta/usuariosList.html', contexto)
+
+def usuariosAdd(request):
+    #si no es POST, se muestra formulario para agregar nuevos usuarios
+    if request.method != "POST":
+        generos=Genero.objects.all()
+        context={'generos':generos}
+        return render(request,'venta/usuariosAdd.html', context)
+    else:
+        #es un POST, por lo tanto se recuperan los datos del formulario
+        #y se graban
+        rut=request.POST["rut"]
+        nombre=request.POST["nombre"]
+        apellido_paterno=request.POST["apellido_paterno"]
+        apellido_materno=request.POST["apellido_materno"]
+        fecha_nacimiento=request.POST["fecha_nacimiento"]
+        genero=request.POST["genero"]
+        telefono=request.POST["telefono"]
+        email=request.POST["email"]
+        direccion=request.POST["direccion"]
+
+        
+        objGenero=Genero.objects.get(id_genero=genero)
+        obj=Usuario.objects.create( rut=rut,
+                                  nombre=nombre,
+                                  apellido_paterno=apellido_paterno,
+                                  apellido_materno=apellido_materno,
+                                  fecha_nacimiento=fecha_nacimiento,
+                                  id_genero=objGenero,
+                                  telefono=telefono,
+                                  email=email,
+                                  direccion=direccion,
+
+                                  activo=1)
+        obj.save()
+        context={'mensaje':"OK, datos grabados..."}
+        return render(request, 'venta/usuariosAdd.html', context)
+
+def usuariosDel(request, pk):
+    context = {}
+    try:
+        usuario=Usuario.objects.get(rut=pk)
+        usuario.delete()
+        mensaje = "Los datos fueron eliminados con éxito!!!"
+        usuarios= Usuario.objects.all()
+        context ={'usuarios': usuarios, 'mensaje': mensaje}
+        return render(request, 'venta/usuariosList.html', context)
+    except:
+        mensaje = "Error, rut no existe!!!"
+        usuarios= Usuario.objects.all()
+        context ={'usuarios': usuarios, 'mensaje': mensaje}
+        return render(request, 'venta/usuariosList.html', context)
+
+def usuariosEdit(request,pk):
+    if pk != "":
+        usuario=Usuario.objects.get(rut=pk)
+        generos=Genero.objects.all()
+        print(type(usuario.id_genero.genero))
+
+        context = {'usuario': usuario, 'generos':generos}
+        if usuario:
+            return render (request,'venta/usuariosEdit.html',context)
+        else:
+            context={'mensaje': "Error, rut no existe..."}
+            return render(request, 'venta/usuariosEdit.html', context)
+
+def usuariosUpdate(request):    
+    if request.method == "POST":
+        #es un POST, por lo tanto se recuperan los datos del formulario
+        #y se graban en la tabla    
+        rut=request.POST["rut"]
+        nombre=request.POST["nombre"]
+        apellido_paterno=request.POST["apellido_paterno"]
+        apellido_materno=request.POST["apellido_materno"]
+        fecha_nacimiento=request.POST["fecha_nacimiento"]
+        genero=request.POST["genero"]
+        telefono=request.POST["telefono"]
+        email=request.POST["email"]
+        direccion=request.POST["direccion"]
+
+                
+        objGenero=Genero.objects.get(id_genero=genero)
+
+        usuario=Usuario()
+        usuario.rut=rut
+        usuario.nombre=nombre
+        usuario.apellido_paterno=apellido_paterno
+        usuario.apellido_materno=apellido_materno
+        usuario.fecha_nacimiento=fecha_nacimiento
+        usuario.id_genero=objGenero
+        usuario.telefono=telefono
+        usuario.email=email
+        usuario.direccion=direccion
+
+        usuario.activo=1
+        usuario.save()
+
+        generos=Genero.objects.all()
+        context={'mensaje':"OK, datos actualizados...",'generos':generos, 'usuario':usuario}
+        return render(request, 'venta/usuariosEdit.html', context)
+    else:
+        usuarios = Usuario.objects.all()
+        context = {'usuarios':usuarios}
+        return render(request, 'venta/usuariosList.html', context)
