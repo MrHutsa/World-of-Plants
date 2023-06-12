@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_protect
 
 from .models import Usuario
 
@@ -223,3 +224,8 @@ def usuariosUpdate(request):
         usuarios = Usuario.objects.all()
         context = {'usuarios':usuarios}
         return render(request, 'venta/usuariosList.html', context)
+    
+
+
+######### CARRITO ############
+
