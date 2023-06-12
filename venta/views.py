@@ -54,32 +54,38 @@ def tienda(request):
     # Parámetros de la solicitud
     rosa = {
         "q": "Rosa chinensis",
-        "limit": 1
+        "limit": 1,
+        "precio": 25.000
     }
 
     spreading = {
         "q": "Spreading hedgeparsley",
-        "limit": 1
+        "limit": 1,
+        "precio": 32.000
     }    
     
     Christmastree = {
         "q": "Christmastree",
-        "limit": 1
+        "limit": 1,
+        "precio": 55.000
     }
 
     cannabis = {
         "q": "cannabis-sativa",
-        "limit": 1
+        "limit": 1,
+        "precio": 20.000
     }
 
     clover = {
         "q": "Cowgrass clover",
-        "limit": 1
+        "limit": 1,
+        "precio": 15.000
     }
 
     Indian = {
         "q": "Indian-dope",
-        "limit": 1
+        "limit": 1,
+        "precio": 17.000
     }    
 
     # Encabezados de la solicitud
