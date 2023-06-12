@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.contrib.auth.models import User
 
-from .models import Usuario,Genero
+from .models import Usuario
 
 import requests
 import random
@@ -12,8 +13,31 @@ def inicio(request):
     context = {}
     return render(request,'venta/index.html',context)
 
-def sign(request):    
-    return render(request, 'venta/formulario-sign-up.html')
+def sign(request):
+    #si no es POST, se muestra formulario para agregar nuevos usuarios
+    if  request.method != "POST":
+        return render(request,'venta/formulario-sign-up.html')
+    else:
+        #es un POST, por lo tanto se recuperan los datos del formulario
+        #y se graban
+#        rut=request.POST["rut"]
+        nombre=request.POST["nombre"]
+        usuario=request.POST["usuario"]
+        email=request.POST["email"]
+        telefono=request.POST["telefono"]
+        contraseña=request.POST["contraseña"]
+        
+        user = User.objects.create_user(username = usuario, password = contraseña)
+        user.email = email
+        user.save()
+
+#        objGenero=Genero.objects.get(id_genero=genero)
+        obj=Usuario.objects.create(nombre=nombre,
+                                  email=email,
+                                  telefono=telefono)
+        obj.save()
+        context={'mensaje':"OK, datos grabados..."}
+        return render(request, 'venta/formulario-sign-up.html', context)    
 
 def login(request):    
     return render(request, 'venta/formulario-login.html')
@@ -116,36 +140,27 @@ def usuariosList(request):
 
 def usuariosAdd(request):
     #si no es POST, se muestra formulario para agregar nuevos usuarios
-    if request.method != "POST":
-        generos=Genero.objects.all()
-        context={'generos':generos}
-        return render(request,'venta/usuariosAdd.html', context)
+    if  request.method != "POST":
+
+        return render(request,'venta/usuariosAdd.html')
     else:
         #es un POST, por lo tanto se recuperan los datos del formulario
         #y se graban
-        rut=request.POST["rut"]
+#        rut=request.POST["rut"]
         nombre=request.POST["nombre"]
-        apellido_paterno=request.POST["apellido_paterno"]
-        apellido_materno=request.POST["apellido_materno"]
-        fecha_nacimiento=request.POST["fecha_nacimiento"]
-        genero=request.POST["genero"]
-        telefono=request.POST["telefono"]
+        usuario=request.POST["usuario"]
         email=request.POST["email"]
-        direccion=request.POST["direccion"]
-
-        
-        objGenero=Genero.objects.get(id_genero=genero)
-        obj=Usuario.objects.create( rut=rut,
+        telefono=request.POST["telefono"]
+        contraseña=request.POST["contraseña"]
+    
+#        objGenero=Genero.objects.get(id_genero=genero)
+        obj=Usuario.objects.create(
                                   nombre=nombre,
-                                  apellido_paterno=apellido_paterno,
-                                  apellido_materno=apellido_materno,
-                                  fecha_nacimiento=fecha_nacimiento,
-                                  id_genero=objGenero,
-                                  telefono=telefono,
+                                  usuario=usuario,
                                   email=email,
-                                  direccion=direccion,
-
-                                  activo=1)
+                                  telefono=telefono,
+                                  contraseña=contraseña,
+                                  )
         obj.save()
         context={'mensaje':"OK, datos grabados..."}
         return render(request, 'venta/usuariosAdd.html', context)
@@ -168,10 +183,8 @@ def usuariosDel(request, pk):
 def usuariosEdit(request,pk):
     if pk != "":
         usuario=Usuario.objects.get(rut=pk)
-        generos=Genero.objects.all()
-        print(type(usuario.id_genero.genero))
 
-        context = {'usuario': usuario, 'generos':generos}
+        context = {'usuario': usuario}
         if usuario:
             return render (request,'venta/usuariosEdit.html',context)
         else:
@@ -182,35 +195,23 @@ def usuariosUpdate(request):
     if request.method == "POST":
         #es un POST, por lo tanto se recuperan los datos del formulario
         #y se graban en la tabla    
-        rut=request.POST["rut"]
         nombre=request.POST["nombre"]
-        apellido_paterno=request.POST["apellido_paterno"]
-        apellido_materno=request.POST["apellido_materno"]
-        fecha_nacimiento=request.POST["fecha_nacimiento"]
-        genero=request.POST["genero"]
-        telefono=request.POST["telefono"]
+        usuario=request.POST["usuario"]
         email=request.POST["email"]
-        direccion=request.POST["direccion"]
-
-                
-        objGenero=Genero.objects.get(id_genero=genero)
+        telefono=request.POST["telefono"]
+        contraseña=request.POST["contraseña"]
 
         usuario=Usuario()
-        usuario.rut=rut
-        usuario.nombre=nombre
-        usuario.apellido_paterno=apellido_paterno
-        usuario.apellido_materno=apellido_materno
-        usuario.fecha_nacimiento=fecha_nacimiento
-        usuario.id_genero=objGenero
-        usuario.telefono=telefono
-        usuario.email=email
-        usuario.direccion=direccion
 
-        usuario.activo=1
+        usuario.nombre=nombre
+        usuario.usuario=usuario
+        usuario.email=email
+        usuario.telefono=telefono
+        usuario.contraseña=contraseña
+
         usuario.save()
 
-        generos=Genero.objects.all()
-        context={'mensaje':"OK, datos actualizados...",'generos':generos, 'usuario':usuario}
+        context={'mensaje':"OK, datos actualizados...", 'usuario':usuario}
         return render(request, 'venta/usuariosEdit.html', context)
     else:
         usuarios = Usuario.objects.all()
