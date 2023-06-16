@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_protect
 
-from .models import Usuario
+from .models import Usuario, Producto
+from .carrito import Carrito
 
 import requests
 import random
@@ -229,3 +230,25 @@ def usuariosUpdate(request):
 
 ######### CARRITO ############
 
+def agregar_producto(request, producto_id):  
+    carrito = Carrito(request)
+    producto = Producto.objects.get(id.producto_id)
+    carrito.agregar(producto)
+    return redirect("venta:tienda")
+
+def eliminar_producto(request, producto_id):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(id=producto_id)
+    carrito.eliminar(producto)
+    return redirect("venta:tienda")
+
+def restar_producto(request, producto_id):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(id=producto_id)
+    carrito.restar(producto)
+    return redirect("venta:tienda")
+
+def limpiar_carrito(request):
+    carrito = Carrito(request)
+    carrito.limpiar()
+    return redirect("venta:tienda")

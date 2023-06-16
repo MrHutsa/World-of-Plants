@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import inicio, tienda, sign, login
+from .views import inicio, tienda, sign, login, Carrito
 from . import views
 
 urlpatterns = [
@@ -8,6 +8,7 @@ urlpatterns = [
     path("tienda", tienda,name="tienda"),
     path("formulario-sign-up.html", sign,name="sign"),
     path("formula-login.html", login,name="login"),
+    path("carrito.html", Carrito,name="carrito"),
 
     #CRUD
     path('usuarios', views.usuarios, name='usuarios'),
