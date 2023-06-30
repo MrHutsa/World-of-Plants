@@ -52,14 +52,14 @@
                 </li>
                 {% if user.is_anonymous %}
                 <li class="nav-item">
-                    <a href="/login"><i class="fas fa-sign-in-alt"></i>login</a>
+                    <a href="/login"><i class="nav-link fas fa-sign-in-alt"></i>login</a>
                 </li>
                 {% endif %}
 
                 {% if user.is_authenticated %}
 
                 <li class="nav-item">
-                    <a href="/logout"><i class="fas fa-sign-out-alt"></i>logout</a>
+                    <a href="/logout"><i class="nav-link fas fa-sign-out-alt"></i>logout</a>
                 </li>
 
                 {% endif %}
