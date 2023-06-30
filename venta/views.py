@@ -327,7 +327,7 @@ def modificar_producto(request, id):
         if product.is_valid():
             prod = product.save(commit=False)
             prod.save()
-            return redirect('tienda.html')
+            return redirect('tienda')
     else:
         cart = Carrito(request)
         product = Prodform(instance= prod)    
