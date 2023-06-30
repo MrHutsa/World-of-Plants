@@ -1,7 +1,9 @@
 def cart_total_amount(request):
     total = 0
+    FprecioC = 0
     if request.user.is_authenticated:
         for key, value in request.session['carrito'].items():
-            total += int(value["acumulado"])
+            total = total + (float(value['price']) * value['quantity'])
 
-    return {'cart_total_amount': total}
+            FprecioC= int(total)
+    return {'cart_total_amount': FprecioC}

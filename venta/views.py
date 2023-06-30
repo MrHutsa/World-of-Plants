@@ -1,14 +1,23 @@
-from django.shortcuts import redirect, render
-from django.http import JsonResponse
 from django.contrib.auth.models import User
-from django.views.decorators.csrf import csrf_protect
 
 from .models import Usuario, Producto
-from .carrito import Carrito
 
 import requests
-import random
 
+import random
+from django.views.decorators.csrf import csrf_protect
+from .forms import UserRegisterForm
+from django.shortcuts import render
+from django.shortcuts import redirect
+from django.contrib import messages
+from django.conf.urls.static import static
+from django.utils import timezone
+from .models import Producto
+from .carrito import Carrito
+from .context_processor import cart_total_amount
+from .forms import Prodform,ProdDes
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 def inicio(request):
@@ -227,28 +236,138 @@ def usuariosUpdate(request):
         return render(request, 'venta/usuariosList.html', context)
     
 
+########################################
 
-######### CARRITO ############
 
-def agregar_producto(request, producto_id):  
-    carrito = Carrito(request)
-    producto = Producto.objects.get(id.producto_id)
-    carrito.agregar(producto)
-    return redirect("venta:tienda")
+@csrf_protect
+def register(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            messages.success(request, f'Usuario {username} creado')
+            return redirect('login')
+    else:
+        form = UserRegisterForm()
+    context = { 'form': form }
+    return render(request, 'venta/formulario-sign-up.html',context)
 
-def eliminar_producto(request, producto_id):
-    carrito = Carrito(request)
-    producto = Producto.objects.get(id=producto_id)
-    carrito.eliminar(producto)
-    return redirect("venta:tienda")
+@csrf_protect
+def index(request):
+    cart = Carrito(request)
+    return render(request, 'venta/inicio.html', {})
 
-def restar_producto(request, producto_id):
-    carrito = Carrito(request)
-    producto = Producto.objects.get(id=producto_id)
-    carrito.restar(producto)
-    return redirect("venta:tienda")
+@csrf_protect
+def tienda(request):
+    products = Producto.objects.all()
+    cart = Carrito(request)
+    form = Prodform()
+    if request.POST.get('marca'):
+        if request.method == "POST":
+            form = Prodform(request.POST, request.FILES)
+            if form.is_valid():
+                ProdAgre = form.save(commit=False)
+                ProdAgre.nombre_producto = request.POST.get('nombre_producto')
+                ProdAgre.imgProducto = form.cleaned_data['imgProducto']
+                ProdAgre.save()
+                return redirect('venta/tienda.html')
+    else:
+            products = Producto.objects.all()
+            return render(request, "venta/tienda.html", {
+            "products": products,'form': form,})
 
-def limpiar_carrito(request):
-    carrito = Carrito(request)
-    carrito.limpiar()
-    return redirect("venta:tienda")
+
+
+
+
+@csrf_protect
+def login(request):
+    cart = Carrito(request)
+    return render(request, 'venta/login.html')
+
+
+@csrf_protect
+def add_product_catalogo(request, product_id):
+    cart = Carrito(request)
+    product = Producto.objects.get(id=product_id)
+    cart.add(product=product)
+    return redirect("/tienda.html")
+
+
+def add_product_carrito(request, product_id):
+    cart = Carrito(request)
+    product = Producto.objects.get(id=product_id)
+    cart.add(product=product)
+    return redirect("/carrito.html")
+
+
+
+
+@csrf_protect
+def remove_product(request, product_id):
+    cart = Carrito(request)
+    product = Producto.objects.get(id=product_id)
+    cart.remove(product)
+    return redirect("/carrito.html")
+
+
+@csrf_protect
+def decrement_product(request, product_id):
+    cart = Carrito(request)
+    product = Producto.objects.get(id=product_id)
+    cart.decrement(product=product)
+    return redirect("/carrito.html")
+
+
+@csrf_protect
+def clear_cart(request):
+    cart = Carrito(request)
+    cart.clear()
+    return redirect("/carrito.html")
+
+@csrf_protect
+def modificar_producto(request, id):
+    cart = Carrito(request)
+    prod = Producto.objects.get(id = id)
+    if request.method == 'POST':
+        product = Prodform(request.POST, instance = prod)
+        if product.is_valid():
+            prod = product.save(commit=False)
+            prod.save()
+            return redirect('tienda.html')
+    else:
+        cart = Carrito(request)
+        product = Prodform(instance= prod)    
+        return render(request, 'venta/producto_edit.html',{'product':product})
+    
+@csrf_protect
+def agregar_descuento(request, id):
+    cart = Carrito(request)
+    prod = Producto.objects.get(id = id)
+    if request.method == 'POST':
+        product = ProdDes(request.POST, instance = prod)
+        if product.is_valid():
+            prod = product.save(commit=False)
+            prod.save()
+            return redirect('tienda.html')
+    else:
+        cart = Carrito(request)
+        product = ProdDes(instance= prod)    
+        return render(request, 'venta/producto_desc.html',{'product':product,'prod':prod})
+       
+@csrf_protect
+def eliminar_producto(request, id):
+    cart = Carrito(request)
+    product = Producto.objects.get(id=id)
+    try:
+        product.delete()
+        mensajes = "Eliminado correctamente"
+        messages.success(request, mensajes)
+        return redirect('tienda.html')
+    except:
+        cart = Carrito(request)
+        mensaje = "No se a eliminado el archivo seleccionado"
+        messages.error(request, mensaje)
+    return redirect('tienda')
+ 
