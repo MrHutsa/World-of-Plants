@@ -4,14 +4,14 @@
 
 {% block content %}
 <div class="container-fluid">
-    <div class="EspaciadoContenido">
+    <div class="EspaciadoContenido container-form">
             <section class="Mod-camp">
                 <br>
-                <h1>Modificar Campeon</h1>
+                <h1>Modificar Producto</h1>
                 <div class="contenedor-camp">
                     <form method="POST" class="form-camp" enctype="multipart/form-data">{% csrf_token %}
                         {{ product.as_p }}
-                        <input type="submit" class="btn-mod" value="MODIFICAR">
+                        <input type="submit" class="button-container btn-mod" value="MODIFICAR">
                     </form>
                 </div>
             </section>

@@ -52,17 +52,16 @@
                 </li>
                 {% if user.is_anonymous %}
                 <li class="nav-item">
-                    <a class="nav-link " href="{%url 'login'%}">LOGIN</a>
+                    <a href="/login"><i class="fas fa-sign-in-alt"></i>login</a>
                 </li>
                 {% endif %}
 
                 {% if user.is_authenticated %}
+
                 <li class="nav-item">
-                    <a class="nav-link " href="{%url 'login'%}">LOGOUT</a>
-                </li>
-                <li>
                     <a href="/logout"><i class="fas fa-sign-out-alt"></i>logout</a>
                 </li>
+
                 {% endif %}
             </ul>            
         </div>

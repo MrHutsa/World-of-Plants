@@ -1,0 +1,18 @@
+.EspaciadoContenido
+{
+    padding-bottom: 1rem;
+    
+}
+
+.button-container
+{
+    background-image: linear-gradient(to right, #aa076b, #61045f);    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #aa076b, #61045f);
+}

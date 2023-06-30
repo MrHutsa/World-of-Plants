@@ -1,7 +1,7 @@
 {%extends 'venta/base.html'%}
 
 {%load static%}
-{% load cart_tags %}
+
 
 {% block title %} Tienda {% endblock %}
 {% block content %}
@@ -88,10 +88,10 @@
   <div class="album py-5 bg-light m-0 ">
     <div class="container">
       <div class="container-fluid">
-        <div class="EspaciadoContenido">
-            <div class="row start-xs between-xs">
+          <div class="EspaciadoContenido">
+              <div class="row start-xs between-xs">
                   
-                {% for product in products %}
+                  {% for product in products %}
                   <div class="col-md-4  ">
                       <div class="card">
                           <img src="{{ product.imgProducto.url }}" style="width:100%;" class="Card image cap imgproductos" alt="{{ product.nombre_producto}}" />
@@ -132,7 +132,7 @@
                       </div>
                   </div>
               {% endfor %}
-            </div>
+              </div>
         </div>
       </div>
     </div>
