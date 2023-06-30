@@ -21,6 +21,7 @@ from django.contrib import messages
 
 # Create your views here.
 def inicio(request):
+    cart = Carrito(request)
     context = {}
     return render(request,'venta/index.html',context)
 
@@ -53,7 +54,7 @@ def sign(request):
 def login(request):    
     return render(request, 'venta/formulario-login.html')
 
-
+##API###
 
 def tienda(request):
     # Obtén el token de la API de Trefle
@@ -132,7 +133,7 @@ def tienda(request):
     for especie in especies_totales:
         especie["precio"] = generate_random_price()
 
-    return render(request, "venta/tienda.html", {"especies_totales": especies_totales})
+    return render(request, "venta/tienda.html", {"especies_totales": especies_totales, "especies_cannabis": especies_cannabis})
 
 def generate_random_price():
     return random.randint(10000, 50000)
@@ -239,19 +240,6 @@ def usuariosUpdate(request):
 ########################################
 
 
-@csrf_protect
-def register(request):
-    if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data['username']
-            messages.success(request, f'Usuario {username} creado')
-            return redirect('login')
-    else:
-        form = UserRegisterForm()
-    context = { 'form': form }
-    return render(request, 'venta/formulario-sign-up.html',context)
 
 @csrf_protect
 def index(request):
@@ -271,7 +259,7 @@ def tienda(request):
                 ProdAgre.nombre_producto = request.POST.get('nombre_producto')
                 ProdAgre.imgProducto = form.cleaned_data['imgProducto']
                 ProdAgre.save()
-                return redirect('venta/tienda.html')
+                return redirect('tienda')
     else:
             products = Producto.objects.all()
             return render(request, "venta/tienda.html", {
@@ -286,6 +274,10 @@ def login(request):
     cart = Carrito(request)
     return render(request, 'venta/login.html')
 
+@csrf_protect
+def CompraF(request):
+    cart = Carrito(request)
+    return render(request, 'musicpro/CompraF.html')
 
 @csrf_protect
 def add_product_catalogo(request, product_id):
@@ -371,3 +363,19 @@ def eliminar_producto(request, id):
         messages.error(request, mensaje)
     return redirect('tienda')
  
+def webpay(request):
+    cart = Carrito(request)
+    total = 0
+    FprecioC = 0
+    buy_order = str(1)
+    session_id = str(1)
+    return_url = 'http://127.0.0.1:8000/terminar.html'
+    total = 0
+    FprecioC = 0
+    if request.user.is_authenticated:
+        for key, value in request.session['carrito'].items():
+            total = total + (float(value['price']) * value['quantity'])
+            
+            FprecioC= int(total)
+    amount = FprecioC
+    return render(request, 'venta/carrito.html', {})

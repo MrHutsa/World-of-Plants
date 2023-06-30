@@ -14,11 +14,12 @@
           <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
               <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card bg-dark text-white" style="#">
+                <div class="card bg-dark text-white">
                   <div class="card-body p-5 text-center">
                     <form id="loginForm" method="post">
+                      {% csrf_token %}
                       <div class="mb-md-5 mt-md-4 pb-5">
-        
+                        
                         <h2 class="fw-bold mb-2 text-center text-uppercase">Plantitas</h2>
                         <p class="text-white-50 mb-5">Por favor ingrese su cuenta y contraseña!</p>
         
@@ -53,7 +54,7 @@
                     </form>
         
                     <div>
-                      <p class="mb-0">¿No tienes cuenta? <a href="../html/formulario-sign-up.html" class="text-white-50 fw-bold">Regístrate</a>
+                      <p class="mb-0">¿No tienes cuenta? <a href="formulario-sign-up.html" class="text-white-50 fw-bold">Regístrate</a>
                       </p>
                     </div>
         

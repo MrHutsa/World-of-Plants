@@ -8,11 +8,11 @@ from .views import *
 
 urlpatterns = [
     path("", views.inicio,name ='inicio'),
-
+    path('index.html', views.inicio, name='inicio'),
     path("tienda.html", views.tienda,name="tienda"),
     path('formulario-sign-up.html', views.sign,name="sign"),
     path("formulario-login.html", views.login,name="login"),
-    path("carrito.html", views.Carrito,name="carrito"),
+    path("carrito.html", views.webpay,name="carrito"),
 
     path('login',LoginView.as_view(template_name = 'venta/formulario-login.html'), name="login"),
     path('logout/',LogoutView.as_view(template_name = 'venta/inicio.html'), name="logout"),
