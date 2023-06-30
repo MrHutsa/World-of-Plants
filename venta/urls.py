@@ -18,9 +18,9 @@ urlpatterns = [
     path('logout/',LogoutView.as_view(template_name = 'venta/inicio.html'), name="logout"),
 
 
-    path('usuarios', views.usuarios, name='usuarios'),
-    path('usuariosList', views.usuariosList, name='usuariosList'),
-    path('usuariosAdd', views.usuariosAdd, name='usuariosAdd'),
+    path('usuarios.html', views.usuarios, name='usuarios'),
+    path('usuariosList.html', views.usuariosList, name='usuariosList'),
+    path('usuariosAdd.html', views.usuariosAdd, name='usuariosAdd'),
     path('usuariosDel/<str:pk>', views.usuariosDel, name='usuariosDel'),
     path('usuariosEdit/<str:pk>', views.usuariosEdit, name='usuariosEdit'),
     path('usuariosUpdate', views.usuariosUpdate, name='usuariosUpdate'),
