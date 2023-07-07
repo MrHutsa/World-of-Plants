@@ -44,6 +44,16 @@
                 <li class="nav-item">
                 <a class="nav-link " href="{%url 'carrito'%}">CARRITO</a>
                 </li>
+                {%if request.user.is_staff%}
+                <li class="nav-item">
+                    <a class="nav-link " href="{%url 'usuariosList'%}">USUARIOS</a>
+                </li>
+                {%endif%}
+                {%if request.user.is_staff%}
+                <li class="nav-item">
+                    <a class="nav-link " href="{%url 'productosList'%}">PRODUCTOS</a>
+                </li>
+                {%endif%}
                 <li class="nav-item">
                 <a class="nav-link " href="#footer">CONTACTO</a>
                 </li>
@@ -68,8 +78,19 @@
     </nav>  
 </section>
 
+{%for message in messages %}
+<div class="card bg-success m-0">
+    <div class="card-body">
+    
+        {{message}}
+    
+    </div>
+</div>
+{%endfor%}
 
-{% block content %} {% endblock %}
+{% block content %} 
+
+{% endblock %}
 
 <!-- FOOTER -->
 

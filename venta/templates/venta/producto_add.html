@@ -1,0 +1,40 @@
+{%extends 'venta/base.html'%}
+
+{% load static %}
+{% block title %} Lista de Productos {% endblock %}
+{% block content %}
+<body>
+    <div class="container">
+        
+    <div class="row d-flex justify-content-center">
+        
+        <form action="" method="POST" class="col-md-6" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1>Agregar nuevo producto</h1>
+            <div class="form-group">
+
+                <div class="mb-3">
+                    <label for="nombre_producto" class="form-label">Nombre producto</label>
+                    {{form.nombre_producto}}
+                </div>
+
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Precio:</label>
+                    {{form.precio}}
+                </div>
+                <div class="mb-3">
+                    <label for="imgProducto" class="form-label">imagen:</label>
+                    {{form.imgProducto}}
+                </div>
+                <div class="mb-3">
+                    <label for="descuento" class="form-label">Descuento:</label>
+                    {{form.descuento}}
+                </div>
+            </div>
+            <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
+        </form>
+    </div>
+    <a href="{% url 'productosList' %}">Volver</a>
+</div>  
+</body>
+{%endblock%}

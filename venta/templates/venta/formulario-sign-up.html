@@ -16,35 +16,26 @@
                     {% csrf_token %}
                     <h2>Registro</h2>
                     <div class="content">
-                          <!-- Nombre Completo -->
-                        <div class="input-box">
-                            <label for="nombre">Nombre Completo</label>
-                            <input type="text" placeholder="Nombre completo" name="nombre" id="nombre" >
-                        </div>
                          <!-- Nombre Usuario -->
                         <div class="input-box">
-                            <label for="nombreUsuario">Nombre Usuario</label>
-                            <input type="text" placeholder="Ingrese usuario" name="usuario" id="usuario" >
+                            <label for="username">Nombre Usuario</label>
+                            {{form.username}}
                         </div>
                          <!-- Email -->
                         <div class="input-box">
                             <label for="email">Email</label>
-                            <input type="email" placeholder="Ingrese Email" name="email" id="email" >
+                            {{form.email}}
                         </div>
-                         <!-- Numero Telefonico -->
-                        <div class="input-box">
-                            <label for="telefono">Numero Telefonico</label>
-                            <input type="tel" placeholder="Ej: 111-222-333" name="telefono" id="telefono" >
-                        </div>
+
                          <!-- Contraseña -->
                         <div class="input-box">
                             <label for="contraseña">Contraseña</label>
-                            <input type="password" placeholder="Ingrese contraseña" name="contraseña" id="contraseña" >
+                            {{form.password1}}
                         </div>
                          <!-- Confirme su Contraseña -->
                         <div class="input-box">
                             <label for="Contraseña">Confirme su Contraseña</label>
-                            <input type="password" placeholder="Confirme contraseña" name="confirmeContraseña" id="confirmeContraseña" >
+                            {{form.password2}}
                         </div>
 
 

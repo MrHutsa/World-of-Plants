@@ -1,56 +1,56 @@
 {%extends 'venta/base.html'%}
 
 {% load static %}
-{% block title %} Lista de usuarios {% endblock %}
+{% block title %} Lista de Productos {% endblock %}
 {% block content %}
 
 <body>
     <div class="container">
         <div class="row">
-            <h1>Listado de Usuarios</h1>
+            <h1>Listado de Productos</h1>
         </div>
         <br>
         <div class="row mb-3">
             <table class="table table-bordered" id="usuarios">
                 <thead class="table-dark">
                     <tr>
-                        <th scope="col">Rut</th>
-                        <th scope="col">Usuario</th>
-                        <th scope="col">Email</th>
+                        <th scope="col">Id</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Apellido P.</th>
-                        <th scope="col">Apellido M.</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Descuento</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">SubCategoria</th>
+                        <th scope="col">Imagen</th>
 
                         <th scope="col">Opciones</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                {% for auxUser in perfiles%}
+                {% for p in productos%}
                 <tr>
-                    <td>{{auxUser.rut}}</td>
-                    <td>{{auxUser.user.username}}</td>
-                    <td>{{auxUser.user.email}}</td>
-                    <td>{{auxUser.user.first_name}}</td>
-                    <td>{{auxUser.user.last_name}}</td>
-                    <td>{{auxUser.apellido_materno}}</td>
+                    <td>{{p.pk}}</td>
+
+                    <td>{{p.nombre_producto}}</td>
+                    <td>{{p.categoria}}</td>
+                    <td>{{p.descuento}}</td>
+                    <td>{{p.precio}}</td>
+                    <td>{{p.subcategoria}}</td>
+                    <td><img src="{{p.imgProducto.url}}" alt="" height="80px"></td>
 
 
 
-                    <td><button type="button"><a href="{% url 'usuariosEdit' pk=auxUser.user.pk %}">Modificar</a></button></td>
-                    <td><button type="button"><a href="{% url 'usuariosDel' pk=auxUser.user.pk %}">Eliminar</a></button></td>
+                    <td><button type="button"><a href="{% url 'modificar_producto' pk=p.pk %}">Modificar</a></button></td>
+                    <td><button type="button"><a href="{% url 'eliminar_producto' id=p.pk %}">Eliminar</a></button></td>
+
                 </tr>
                 {% endfor %}
             </table>
         </div>
         <br>
         <div class="row">
-            <a href="{% url 'usuariosAdd' %}">Ingresar Nuevo Usuario</a>
+            <a href="{%url 'producto_add' %}">Agregar un producto</a>
         </div>
-        <div id="idMensajes">
-            {% if mensaje %}
-                {{mensaje}}
-            {% endif %}
-        </div>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"

@@ -10,20 +10,11 @@ from django.contrib.auth.models import User
 #    def __str__(self):
 #        return str(self.genero)
     
-
-# Create your models here.
-class Usuario(models.Model):
-
-    idUser          = models.AutoField(db_column='idUser', primary_key=True)
-    nombre          = models.CharField(max_length=20)
-    email           = models.EmailField(unique=True, max_length=100, blank=True, null=True)
-    telefono        = models.CharField(max_length=45)
-
-    def __str__(self):
-        return str(self.nombre)
-
 class Perfil(models.Model):
         user            = models.OneToOneField(User, on_delete=models.CASCADE)
+        apellido_materno= models.CharField(max_length=50,blank=True)
+        rut             = models.CharField(max_length=12,blank=True)
+        telefono        = models.CharField(max_length=12,blank=True)
         direccion       = models.CharField(max_length=50,null=True)
         ciudad          = models.CharField(max_length=50,null=True) 
         país            = models.CharField(max_length=50,null=True)

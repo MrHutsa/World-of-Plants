@@ -16,53 +16,37 @@
 <body>
     <div class="container">
         {% if usuario %}
+        
         <div><h1>Formulario de Actualización de Usuario</h1></div>
     <div class="row">
-        <form action="{% url 'usuariosUpdate' %}" method="POST" enctype="multipart/form-data">
+        <form action="{% url 'usuariosUpdate' pk=usuario.pk %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group">
                 <div class="mb-3">
                     <label for="rut" class="form-label">RUT:</label>
-                    <input type="text" class="form-control" name="rut" value="{{usuario.rut}}">
+                    <input type="text" class="form-control" name="rut" value="{{perfil.rut}}">
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Nombre de usuario:</label>
+                    <input type="text" class="form-control" name="username" value="{{usuario.username}}">
                 </div>
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre:</label>
-                    <input type="text" class="form-control" name="nombre" value="{{usuario.nombre}}">
+                    <input type="text" class="form-control" name="nombre" value="{{usuario.first_name}}">
                 </div>
                 <div class="mb-3">
-                    <label for="apellido_paterno" class="form-label">Apellido Paterno:</label>
-                    <input type="text" class="form-control" name="apellido_paterno" value="{{usuario.apellido_paterno}}">
+                    <label for="apellido" class="form-label">Apellido Paterno:</label>
+                    <input type="text" class="form-control" name="apellido" value="{{usuario.last_name}}">
                 </div>
                 <div class="mb-3">
-                    <label for="apellido_materno" class="form-label">Apellido Materno:</label>
-                    <input type="text" class="form-control" name="apellido_materno" value="{{usuario.apellido_materno}}">
+                    <label for="materno" class="form-label">Apellido Materno:</label>
+                    <input type="text" class="form-control" name="materno" value="{{perfil.apellido_materno}}">
                 </div>
-                <div class="mb-3 row">
-                    <div class="col-6">
-                        <div class="form-floating">                             
-                            <input type="date" class="form-control" name="fecha_nacimiento" value="{{usuario.fecha_nacimiento|date:'Y-m-d'}}">
-                            <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento:</label>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-floating">                   
-                            <select class="form-select" name="genero" id="">
-                                {% for genero in generos %}
-                                {% if genero.genero == usuario.id_genero.genero %}
-                                    <option value="{{genero.id_genero}}" selected>{{genero.genero}}</option>
-                                {% else %}
-                                  <option value="{{genero.id_genero}}" >{{genero.genero}}</option>
-                                {% endif%}
-                                {% endfor %}
-                            </select>
-                            <label for="genero">G&eacute;nero:</label>
-                        </div>
-                    </div>
-                </div>
+
                 
                 <div class="mb-3">
                     <label for="telefono" class="form-label">Celular:</label>
-                    <input type="text" class="form-control" name="telefono" value="{{usuario.telefono}}">
+                    <input type="text" class="form-control" name="telefono" value="{{perfil.telefono}}">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email:</label>
@@ -70,7 +54,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="direccion" class="form-label">Direcci&oacute;n:</label>
-                    <input type="text" class="form-control" name="direccion" value="{{usuario.direccion}}">
+                    <input type="text" class="form-control" name="direccion" value="{{perfil.direccion}}">
                 </div>
 
 
