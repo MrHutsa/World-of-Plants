@@ -272,26 +272,22 @@ def tienda(request):
 @csrf_protect
 def login(request):
     cart = Carrito(request)
-    return render(request, 'venta/login.html')
+    return render(request, 'venta/formulario-login.html')
 
-@csrf_protect
-def CompraF(request):
-    cart = Carrito(request)
-    return render(request, 'musicpro/CompraF.html')
 
 @csrf_protect
 def add_product_catalogo(request, product_id):
     cart = Carrito(request)
     product = Producto.objects.get(id=product_id)
     cart.add(product=product)
-    return redirect("/tienda.html")
+    return redirect("venta/tienda.html")
 
 
 def add_product_carrito(request, product_id):
     cart = Carrito(request)
     product = Producto.objects.get(id=product_id)
     cart.add(product=product)
-    return redirect("/carrito.html")
+    return redirect("venta/carrito.html")
 
 
 
@@ -301,7 +297,7 @@ def remove_product(request, product_id):
     cart = Carrito(request)
     product = Producto.objects.get(id=product_id)
     cart.remove(product)
-    return redirect("/carrito.html")
+    return redirect("venta/carrito.html")
 
 
 @csrf_protect
@@ -309,14 +305,14 @@ def decrement_product(request, product_id):
     cart = Carrito(request)
     product = Producto.objects.get(id=product_id)
     cart.decrement(product=product)
-    return redirect("/carrito.html")
+    return redirect("venta/carrito.html")
 
 
 @csrf_protect
 def clear_cart(request):
     cart = Carrito(request)
     cart.clear()
-    return redirect("/carrito.html")
+    return redirect("venta/carrito.html")
 
 @csrf_protect
 def modificar_producto(request, id):
