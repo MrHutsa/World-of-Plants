@@ -29,6 +29,7 @@ def inicio(request):
     return render(request,'venta/index.html',context)
 
 def sign(request):
+    cart = Carrito(request)
     if request.method == 'GET':
         form = RegisterForm()
         return render(request, 'venta/formulario-sign-up.html', {'form': form})    
@@ -139,9 +140,11 @@ def sign(request):
 #CRUD#
 
 def usuarios(request):
+    cart = Carrito(request)
     return render(request,'venta/usuarios.html')
 
 def usuariosList(request):
+    cart = Carrito(request)
     #defino un objeto para trar el listado completo de usuarios desde la BD
     #Usuario.objects.all() <=> 'Select * From Usuario'
     usuarios= User.objects.all()
@@ -155,6 +158,7 @@ def usuariosList(request):
     return render(request, 'venta/usuariosList.html', context)
 
 def usuariosAdd(request):
+    cart = Carrito(request)
     if request.method == 'GET':
         form = RegisterForm()
         return render(request, 'venta/usuariosAdd.html', {'form': form})    
@@ -171,7 +175,7 @@ def usuariosAdd(request):
             return render(request, 'venta/usuarioAdd.html', {'form': form})
  
 def usuariosDel(request, pk):
-    
+    cart = Carrito(request)
     usuario=User.objects.get(pk=pk)
     if usuario:
         usuario.delete()
@@ -183,6 +187,7 @@ def usuariosDel(request, pk):
         return redirect('usuariosList')
 
 def usuariosEdit(request,pk):
+    cart = Carrito(request)
     if pk != "":
         usuario=User.objects.get(pk=pk)
         perfil = Perfil.objects.get(user=usuario)
@@ -194,7 +199,8 @@ def usuariosEdit(request,pk):
             context={'mensaje': "Error, rut no existe..."}
             return render(request, 'venta/usuariosEdit.html', context)
 
-def usuariosUpdate(request,pk):    
+def usuariosUpdate(request,pk):   
+    cart = Carrito(request) 
     if request.method == "POST":
         #es un POST, por lo tanto se recuperan los datos del formulario
         #y se graban en la tabla    
@@ -303,6 +309,7 @@ def add_product_carrito(request, product_id):
     return redirect("/carrito.html")
 
 def productosList(request):
+    cart = Carrito(request)
     productos = Producto.objects.all()
     #cargo el objeto obtenido al contexto 
     context={
@@ -335,6 +342,7 @@ def clear_cart(request):
     return redirect("/carrito.html")
 
 def producto_add(request):
+    cart = Carrito(request)
     if request.method == 'POST':
         form = Prodform(request.POST, request.FILES)
         if form.is_valid():
@@ -351,7 +359,7 @@ def modificar_producto(request, pk):
     cart = Carrito(request)
     prod = Producto.objects.get(id = pk)
     if request.method == 'POST':
-        product = Prodform(request.POST, instance = prod)
+        product = Prodform(request.POST, request.FILES, instance = prod)
         if product.is_valid():
             prod = product.save(commit=False)
             prod.save()
@@ -398,7 +406,7 @@ def carrito(request):
     total = 0
     FprecioC = 0
     if request.user.is_authenticated:
-        for key, value in request.session['carrito'].items():
+        for key, value in request.session['cart'].items():
             total = total + (float(value['price']) * value['quantity'])
             
             FprecioC= int(total)
